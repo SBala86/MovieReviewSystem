@@ -1,0 +1,15 @@
+<%= form_tag(movies_path, method: :get, class: "form-inline") do %>
+  <div class="input-group mb-3">
+    <%= date_field_tag :start_date, params[:start_date], class: "form-control", placeholder: "Start Date", id: "start_date" %>
+    <div class="input-group-append">
+      <span class="input-group-text"><i class="bi bi-calendar" id="start_date_picker"></i></span>
+    </div>
+  </div>
+  <div class="input-group mb-3">
+    <%= date_field_tag :end_date, params[:end_date], class: "form-control", placeholder: "End Date", id: "end_date" %>
+    <div class="input-group-append">
+      <span class="input-group-text"><i class="bi bi-calendar" id="end_date_picker"></i></span>
+    </div>
+  </div>
+  <%= submit_tag "Filter", class: "btn btn-primary" %><br>
+<% end %>

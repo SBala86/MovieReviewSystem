@@ -1,0 +1,27 @@
+<div class="container">
+  <h1><%= @movie.name %></h1>
+  <p><strong>Release Date:</strong> <%= @movie.release_date %></p>
+  <%= render "reviews/form" %><br>
+  <h2>Reviews:</h2>
+
+  <% if @movie.reviews.reload.any? %>
+    <ul class="list-group">
+      <% @movie.reviews.each do |review| %>
+        <% if can?(:read, review) %> <!-- Check if the current user can read this review -->
+        <li class="list-group-item">
+          <strong>Rating:</strong> <%= review.rating %><br>
+          <strong>Comment:</strong> <%= review.comment %><br>
+          <strong>User:</strong> <%= review.user.email %><br>
+          <% if can?(:update, review) %> <!-- Check if the current user can update this review -->
+          <%= link_to 'Edit Review', edit_movie_review_path(@movie, review), class: 'btn btn-primary btn-sm' %>
+            <% end %>
+        </li>
+        <% end %>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No reviews for this movie yet.</p>
+  <% end %>
+
+  <%= link_to 'Back to Movies', movies_path, class: 'btn btn-secondary mt-3' %>
+</div>

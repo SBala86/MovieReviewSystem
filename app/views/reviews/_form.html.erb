@@ -1,0 +1,32 @@
+<%= simple_form_for [@movie, Review.new], class: 'form' do |form| %>
+  <div class="form-group">
+    <%= form.label :comment, class: 'control-label' %>
+    <%= form.text_area :comment, class: 'form-control' %>
+  </div>
+
+  <fieldset class="form-group">
+    <legend>Rate this post:</legend>
+    <div class="form-check">
+      <%= form.radio_button :rating, 1, class: 'form-check-input' %>
+      <%= form.label :rating, '1 Star', class: 'form-check-label' %>
+    </div>
+    <div class="form-check">
+      <%= form.radio_button :rating, 2, class: 'form-check-input' %>
+      <%= form.label :rating, '2 Stars', class: 'form-check-label' %>
+    </div>
+    <div class="form-check">
+      <%= form.radio_button :rating, 3, class: 'form-check-input' %>
+      <%= form.label :rating, '3 Stars', class: 'form-check-label' %>
+    </div>
+    <div class="form-check">
+      <%= form.radio_button :rating, 4, class: 'form-check-input' %>
+      <%= form.label :rating, '4 Stars', class: 'form-check-label' %>
+    </div>
+    <div class="form-check">
+      <%= form.radio_button :rating, 5, class: 'form-check-input' %>
+      <%= form.label :rating, '5 Stars', class: 'form-check-label' %>
+    </div>
+  </fieldset>
+
+  <%= form.button :submit, 'Submit', class: 'btn btn-primary' %>
+<% end %>

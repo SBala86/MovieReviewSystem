@@ -1,0 +1,36 @@
+<h1>Search Results</h1>
+
+<% if @movies.reload.any? %>
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>Release Date</th>
+      <th>Average Rating</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.name %></td>
+        <td><%= movie.release_date %></td>
+        <td><%= movie.average_rating %></td>
+        <td>
+          <%= link_to 'View Reviews', movie_path(movie), class: 'btn btn-primary' %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No results found.</p>
+<% end %>
+
+<% if @pagy.pages > 1 %>
+  <div class="pagy-nav">
+    <%= pagy_nav(@pagy, past: 1, next: 1, link_extra: 'class="page-link"') %>
+  </div>
+<% end %>
+
+<%= link_to 'Back to Movies', movies_path, class: 'btn btn-secondary' %>

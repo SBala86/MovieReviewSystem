@@ -1,0 +1,32 @@
+<div class="container">
+<h1>Movies</h1>
+  <br><%= render "filter" %><br>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+  <tr>
+    <th>Name</th>
+    <th>Release Date</th>
+    <th>Average Rating</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @movies.each do |movie| %>
+    <tr>
+      <td><%= movie.name %></td>
+      <td><%= movie.release_date %></td>
+      <td><%= movie.average_rating %></td>
+      <td>
+        <%= link_to 'View Reviews', movie_path(movie), class: 'btn btn-primary' %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+  <br>
+  <% if @pagy.pages > 1 %>
+  <div class="pagy-nav">
+    <%= pagy_nav(@pagy) %>
+  </div>
+    <% end %>
+</div>
