@@ -80,3 +80,6 @@ gem 'devise'
 gem 'simple_form'
 gem 'cancancan'
 gem 'pagy'
+group :production do
+  gem 'pg'
+end
