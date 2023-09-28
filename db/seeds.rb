@@ -16,36 +16,36 @@
 #Review.create(user: user1, movie: movie2, comment: "Good fantasy story", rating: 4)
 
 # Find the last four movies created
-#movies_to_delete = Movie.order(created_at: :desc).limit(4)
+movies_to_delete = Movie.order(created_at: :desc).limit(12)
 
 # Delete the selected movies
-#movies_to_delete.destroy_all
+movies_to_delete.destroy_all
 
 # Create an array of real movie titles and release dates
-movie_data = [
-  { name: "The Shawshank Redemption", release_date: "1994/10/14" },
-  { name: "The Godfather", release_date: "1972/03/24" },
-  { name: "The Dark Knight", release_date: "2008/07/24" },
-  { name: "Pulp Fiction", release_date: "1994/10/21" },
-  { name: "Schindler's List", release_date: "1993/02/11" },
-  { name: "The Lord of the Rings: The Return of the King", release_date: "2003/12/17" },
-  { name: "Forrest Gump", release_date: "1994/10/07" },
-  { name: "Inception", release_date: "2010/07/16" },
-  { name: "The Matrix", release_date: "1999/03/30" },
-  { name: "The Silence of the Lambs", release_date: "1991/01/26" },
-  { name: "Gladiator", release_date: "2000/05/05" },
-  { name: "The Godfather: Part II", release_date: "1974/12/20" },
-  { name: "The Lord of the Rings: The Fellowship of the Ring", release_date: "2001/12/19" },
-  { name: "The Empire Strikes Back", release_date: "1980/06/20" },
-  { name: "Saving Private Ryan", release_date: "1998/07/24" },
-  { name: "Jurassic Park", release_date: "1993/07/16" },
-  { name: "The Avengers", release_date: "2012/04/26" },
-  { name: "Titanic", release_date: "1997/01/08" },
-  { name: "Avatar", release_date: "2009/12/18" },
-  { name: "The Lion King", release_date: "1994/06/24" }
-]
-
-# Create movie records with the provided data
-movie_data.each do |data|
-  Movie.create(data)
-end
+#movie_data = [
+#   { name: "The Shawshank Redemption", release_date: "1994/10/14" },
+#   { name: "The Godfather", release_date: "1972/03/24" },
+#   { name: "The Dark Knight", release_date: "2008/07/24" },
+#   { name: "Pulp Fiction", release_date: "1994/10/21" },
+#   { name: "Schindler's List", release_date: "1993/02/11" },
+#   { name: "The Lord of the Rings: The Return of the King", release_date: "2003/12/17" },
+#   { name: "Forrest Gump", release_date: "1994/10/07" },
+#   { name: "Inception", release_date: "2010/07/16" },
+#   { name: "The Matrix", release_date: "1999/03/30" },
+#   { name: "The Silence of the Lambs", release_date: "1991/01/26" },
+#   { name: "Gladiator", release_date: "2000/05/05" },
+#   { name: "The Godfather: Part II", release_date: "1974/12/20" },
+#   { name: "The Lord of the Rings: The Fellowship of the Ring", release_date: "2001/12/19" },
+#   { name: "The Empire Strikes Back", release_date: "1980/06/20" },
+#   { name: "Saving Private Ryan", release_date: "1998/07/24" },
+#   { name: "Jurassic Park", release_date: "1993/07/16" },
+#   { name: "The Avengers", release_date: "2012/04/26" },
+#   { name: "Titanic", release_date: "1997/01/08" },
+#   { name: "Avatar", release_date: "2009/12/18" },
+#   { name: "The Lion King", release_date: "1994/06/24" }
+# ]
+#
+ # Create movie records with the provided data
+# movie_data.each do |data|
+#   Movie.create(data)
+# end
